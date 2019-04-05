@@ -38,6 +38,10 @@ public class RedissonProperties {
 
 	private String masterName;
 
+	private long ttl = 24 * 60 * 1000;
+
+	private long maxIdleTime = 12 * 60 * 1000;
+
 	public int getTimeout() {
 		return timeout;
 	}
@@ -120,5 +124,21 @@ public class RedissonProperties {
 
 	public void setSentinelAddresses(String[] sentinelAddresses) {
 		this.sentinelAddresses = sentinelAddresses;
+	}
+
+	public long getTtl() {
+		return ttl;
+	}
+
+	public void setTtl(long ttl) {
+		this.ttl = ttl;
+	}
+
+	public long getMaxIdleTime() {
+		return maxIdleTime;
+	}
+
+	public void setMaxIdleTime(long maxIdleTime) {
+		this.maxIdleTime = maxIdleTime;
 	}
 }
