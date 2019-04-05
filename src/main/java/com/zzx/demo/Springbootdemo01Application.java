@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
+/**
+ * 测试案例
+ */
 @MapperScan("com.zzx.demo.**.mapper")
 @EnableCaching
 @SpringBootApplication
