@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zzx.demo.mapper.OrderDetailMapper">
-  <resultMap id="BaseResultMap" type="com.zzx.demo.dto.OrderDetail">
+<mapper namespace="com.zzx.demo.order.mapper.OrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.zzx.demo.order.dto.OrderDetail">
     <id column="detail_id" jdbcType="VARCHAR" property="detailId" />
     <result column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="product_id" jdbcType="VARCHAR" property="productId" />
@@ -25,7 +25,7 @@
     delete from order_detail
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.zzx.demo.dto.OrderDetail">
+  <insert id="insert" parameterType="com.zzx.demo.order.dto.OrderDetail">
     insert into order_detail (detail_id, order_id, product_id, 
       product_name, product_price, product_quantity, 
       product_icon, create_time)
@@ -33,7 +33,7 @@
       #{productName,jdbcType=VARCHAR}, #{productPrice,jdbcType=DECIMAL}, #{productQuantity,jdbcType=INTEGER}, 
       #{productIcon,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.zzx.demo.dto.OrderDetail">
+  <insert id="insertSelective" parameterType="com.zzx.demo.order.dto.OrderDetail">
     insert into order_detail
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="detailId != null">
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zzx.demo.dto.OrderDetail">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzx.demo.order.dto.OrderDetail">
     update order_detail
     <set>
       <if test="orderId != null">
@@ -115,7 +115,7 @@
     </set>
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zzx.demo.dto.OrderDetail">
+  <update id="updateByPrimaryKey" parameterType="com.zzx.demo.order.dto.OrderDetail">
     update order_detail
     set order_id = #{orderId,jdbcType=VARCHAR},
       product_id = #{productId,jdbcType=VARCHAR},
@@ -127,7 +127,7 @@
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </update>
   <!-- 延迟加载的resultMap -->
-  <resultMap type="com.zzx.demo.dto.OrderDetail" id="orderDetailLazyLoadingOrderResultMap">
+  <resultMap type="com.zzx.demo.order.dto.OrderDetail" id="orderDetailLazyLoadingOrderResultMap">
   	<id column="detail_id" jdbcType="VARCHAR" property="detailId" />
     <result column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="product_id" jdbcType="VARCHAR" property="productId" />
@@ -143,7 +143,7 @@
 			(SELECT t1.buyer_name FROM order_master t1 WHERE t1.order_id = t.`order_id`) buyer_name
 			 FROM order_detail t 
      -->
-    <association property="orderMaster" select="com.zzx.demo.mapper.OrderMasterMapper.selectByPrimaryKey" column="order_id"></association>
+    <association property="orderMaster" select="com.zzx.demo.order.mapper.OrderMasterMapper.selectByPrimaryKey" column="order_id"></association>
   </resultMap>
   
   <!-- 查询订单详情关联订单，订单信息需要延迟加载 -->

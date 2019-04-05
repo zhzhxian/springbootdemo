@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zzx.demo.mapper.OrderMasterMapper">
+<mapper namespace="com.zzx.demo.order.mapper.OrderMasterMapper">
 
   <!-- 开启本mapper的namespace下的二级缓存 -->
   <cache/>
   
-  <resultMap id="BaseResultMap" type="com.zzx.demo.dto.OrderMaster">
+  <resultMap id="BaseResultMap" type="com.zzx.demo.order.dto.OrderMaster">
     <id column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="buyer_name" jdbcType="VARCHAR" property="buyerName" />
     <result column="buyer_phone" jdbcType="VARCHAR" property="buyerPhone" />
@@ -30,7 +30,7 @@
     delete from order_master
     where order_id = #{orderId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.zzx.demo.dto.OrderMaster">
+  <insert id="insert" parameterType="com.zzx.demo.order.dto.OrderMaster">
     insert into order_master (order_id, buyer_name, buyer_phone, 
       buyer_address, buyer_openid, order_amount, 
       order_status, pay_status, create_time
@@ -40,7 +40,7 @@
       #{orderStatus,jdbcType=TINYINT}, #{payStatus,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zzx.demo.dto.OrderMaster">
+  <insert id="insertSelective" parameterType="com.zzx.demo.order.dto.OrderMaster">
     insert into order_master
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zzx.demo.dto.OrderMaster">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzx.demo.order.dto.OrderMaster">
     update order_master
     <set>
       <if test="buyerName != null">
@@ -131,7 +131,7 @@
     </set>
     where order_id = #{orderId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zzx.demo.dto.OrderMaster">
+  <update id="updateByPrimaryKey" parameterType="com.zzx.demo.order.dto.OrderMaster">
     update order_master
     set buyer_name = #{buyerName,jdbcType=VARCHAR},
       buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
@@ -143,11 +143,11 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where order_id = #{orderId,jdbcType=VARCHAR}
   </update>
-  <resultMap type="com.zzx.demo.dto.OrderMaster" id="OrderWithDetailResultMap">
+  <resultMap type="com.zzx.demo.order.dto.OrderMaster" id="OrderWithDetailResultMap">
   	<id column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="buyer_name" jdbcType="VARCHAR" property="buyerName" />
     <result column="buyer_phone" jdbcType="VARCHAR" property="buyerPhone" />
-    <collection property="orderDetails" ofType="com.zzx.demo.dto.OrderDetail">
+    <collection property="orderDetails" ofType="com.zzx.demo.order.dto.OrderDetail">
     	<id column="detail_id" property="detailId"/>
     	<result column="product_id" property="productId"/>
     	<result column="product_name" property="productName"/>
@@ -157,17 +157,17 @@
   
   </resultMap>
   
-  <resultMap type="com.zzx.demo.dto.OrderMaster" id="OrderWithDetailProductResultMap">
+  <resultMap type="com.zzx.demo.order.dto.OrderMaster" id="OrderWithDetailProductResultMap">
   	<id column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="buyer_name" jdbcType="VARCHAR" property="buyerName" />
     <result column="buyer_phone" jdbcType="VARCHAR" property="buyerPhone" />
-    <collection property="orderDetails" ofType="com.zzx.demo.dto.OrderDetail">
+    <collection property="orderDetails" ofType="com.zzx.demo.order.dto.OrderDetail">
     	<id column="detail_id" property="detailId"/>
     	<result column="product_id" property="productId"/>
     	<result column="product_name" property="productName"/>
     	<result column="product_price" property="productPrice"/>
     	<result column="product_quantity" property="productQuantity"/>
-    	<association property="productInfo" javaType="com.zzx.demo.dto.ProductInfo">
+    	<association property="productInfo" javaType="com.zzx.demo.order.dto.ProductInfo">
     		<id column="product_id_p" property="productId"/>
     		<result column="product_description" property="productDescription"/>
     		<result column="product_icon" property="productIcon"/>

@@ -5,13 +5,14 @@ package com.zzx.demo.mapper;
 
 import static org.junit.Assert.fail;
 
+import com.zzx.demo.order.mapper.OrderMasterMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.zzx.demo.dto.OrderMaster;
+import com.zzx.demo.order.dto.OrderMaster;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,7 +32,7 @@ public class OrderMasterMapperTest {
 
 	/**
 	 * Test method for
-	 * {@link com.zzx.demo.mapper.OrderMasterMapper#deleteByPrimaryKey(java.lang.String)}.
+	 * {@link OrderMasterMapper#deleteByPrimaryKey(java.lang.String)}.
 	 */
 	@Test
 	public void testDeleteByPrimaryKey() {
@@ -40,7 +41,7 @@ public class OrderMasterMapperTest {
 
 	/**
 	 * Test method for
-	 * {@link com.zzx.demo.mapper.OrderMasterMapper#insert(com.zzx.demo.dto.OrderMaster)}.
+	 * {@link OrderMasterMapper#insert(com.zzx.demo.order.dto.OrderMaster)}.
 	 */
 	@Test
 	public void testInsert() {
@@ -49,7 +50,7 @@ public class OrderMasterMapperTest {
 
 	/**
 	 * Test method for
-	 * {@link com.zzx.demo.mapper.OrderMasterMapper#insertSelective(com.zzx.demo.dto.OrderMaster)}.
+	 * {@link OrderMasterMapper#insertSelective(com.zzx.demo.order.dto.OrderMaster)}.
 	 */
 	@Test
 	public void testInsertSelective() {
@@ -58,7 +59,7 @@ public class OrderMasterMapperTest {
 
 	/**
 	 * Test method for
-	 * {@link com.zzx.demo.mapper.OrderMasterMapper#selectByPrimaryKey(java.lang.String)}.
+	 * {@link OrderMasterMapper#selectByPrimaryKey(java.lang.String)}.
 	 */
 	@Test
 	public void testSelectByPrimaryKey() {
@@ -68,7 +69,7 @@ public class OrderMasterMapperTest {
 
 	/**
 	 * Test method for
-	 * {@link com.zzx.demo.mapper.OrderMasterMapper#updateByPrimaryKeySelective(com.zzx.demo.dto.OrderMaster)}.
+	 * {@link OrderMasterMapper#updateByPrimaryKeySelective(com.zzx.demo.order.dto.OrderMaster)}.
 	 */
 	@Test
 	public void testUpdateByPrimaryKeySelective() {
@@ -77,7 +78,7 @@ public class OrderMasterMapperTest {
 
 	/**
 	 * Test method for
-	 * {@link com.zzx.demo.mapper.OrderMasterMapper#updateByPrimaryKey(com.zzx.demo.dto.OrderMaster)}.
+	 * {@link OrderMasterMapper#updateByPrimaryKey(com.zzx.demo.order.dto.OrderMaster)}.
 	 */
 	@Test
 	public void testUpdateByPrimaryKey() {

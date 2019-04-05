@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zzx.demo.mapper.ProductInfoMapper">
-  <resultMap id="BaseResultMap" type="com.zzx.demo.dto.ProductInfo">
+<mapper namespace="com.zzx.demo.order.mapper.ProductInfoMapper">
+  <resultMap id="BaseResultMap" type="com.zzx.demo.order.dto.ProductInfo">
     <id column="product_id" jdbcType="VARCHAR" property="productId" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
     <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
@@ -26,7 +26,7 @@
     delete from product_info
     where product_id = #{productId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.zzx.demo.dto.ProductInfo">
+  <insert id="insert" parameterType="com.zzx.demo.order.dto.ProductInfo">
     insert into product_info (product_id, product_name, product_price, 
       product_stock, product_description, product_icon, 
       product_status, category_type, create_time
@@ -36,7 +36,7 @@
       #{productStatus,jdbcType=INTEGER}, #{categoryType,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zzx.demo.dto.ProductInfo">
+  <insert id="insertSelective" parameterType="com.zzx.demo.order.dto.ProductInfo">
     insert into product_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="productId != null">
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zzx.demo.dto.ProductInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzx.demo.order.dto.ProductInfo">
     update product_info
     <set>
       <if test="productName != null">
@@ -127,7 +127,7 @@
     </set>
     where product_id = #{productId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zzx.demo.dto.ProductInfo">
+  <update id="updateByPrimaryKey" parameterType="com.zzx.demo.order.dto.ProductInfo">
     update product_info
     set product_name = #{productName,jdbcType=VARCHAR},
       product_price = #{productPrice,jdbcType=DECIMAL},
