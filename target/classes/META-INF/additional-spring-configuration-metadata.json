@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "spring.redis.pool.conn-timeout",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.pool.conn-timeout'"
+  },
+  {
+    "name": "spring.redis.pool.so-timeout",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.pool.so-timeout'"
+  },
+  {
+    "name": "spring.redis.pool.size",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.pool.size'"
+  },
+  {
+    "name": "spring.redis.cluster.retry-attempts",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.cluster.retry-attempts'"
+  },
+  {
+    "name": "spring.redis.cluster.failed-attempts",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.cluster.failed-attempts'"
+  },
+  {
+    "name": "spring.redis.cluster.read-mode",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.cluster.read-mode'"
+  },
+  {
+    "name": "spring.redis.cluster.scan-interval",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.redis.cluster.scan-interval'"
+  }
+]}
