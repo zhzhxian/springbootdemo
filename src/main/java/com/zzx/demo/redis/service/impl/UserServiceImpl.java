@@ -17,26 +17,25 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * UserServiceImpl
+ * 
  * @author zhengzhongxian
  * @date 2019年3月30日
- * @description 
+ * @description
  */
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-    private StringRedisTemplate stringRedisTemplate;
-    
+	private StringRedisTemplate stringRedisTemplate;
+
 	@Override
 	@Cacheable(value = "users", key = "'id_' + #id")
 	public UserBean find(Integer id) {
-	    log.info("load2开始");
-	    UserBean u=UserBean.builder().
-	            name("name"+new Random().nextInt(1000))
-	            .age(new Random().nextInt(100)).build();
-	    log.info("load2结束");
-	    return u;
+		log.info("load2开始");
+		UserBean u = new UserBean("name" + new Random().nextInt(1000), new Random().nextInt(100));
+		log.info("load2结束");
+		return u;
 	}
 
 }
