@@ -53,7 +53,6 @@ public class RedissonAutoConfiguration {
     @Bean
     CacheManager cacheManager(RedissonClient redissonClient) {
         Map<String, CacheConfig> config = new HashMap<>(16);
-        // create "testMap" cache with ttl = 24 minutes and maxIdleTime = 12 minutes
         config.put("cfgMap", new CacheConfig(redssionProperties.getTtl(), redssionProperties.getMaxIdleTime()));
         return new RedissonSpringCacheManager(redissonClient, config);
     }
