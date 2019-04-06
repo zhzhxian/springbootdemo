@@ -12,9 +12,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 @SpringBootApplication
 public class Springbootdemo01Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Springbootdemo01Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Springbootdemo01Application.class, args);
+    }
 
 }
